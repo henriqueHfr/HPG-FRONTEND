@@ -1,6 +1,7 @@
 import styles from './button.module.css';
 
 type ButtonType = {
+  tipo:  "button" | "submit" | "reset" | undefined,
   text: string;
   color: string;
   largura: string;
@@ -9,8 +10,7 @@ type ButtonType = {
   onClickEvent?: () => void; // Adicionando a propriedade onClick opcional
 }
 
-export default function Button({ text, color, largura, altura, colorText, onClickEvent 
-}: ButtonType) {
+export default function Button({ text, color, largura, altura, colorText, onClickEvent, tipo}: ButtonType) {
   return (
     <button
       style={{
@@ -21,6 +21,7 @@ export default function Button({ text, color, largura, altura, colorText, onClic
       }}
       className={styles.button}
       onClick={onClickEvent} // Adicionando o evento onClick ao botão
+      type={tipo}
     >
       {text}
     </button>

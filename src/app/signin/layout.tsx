@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Login - HPG",
+  title: "SignIn - HPG",
   description: "Tarefas",
 };
 export default function LoginLayout({

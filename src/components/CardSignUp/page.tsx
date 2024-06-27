@@ -1,40 +1,43 @@
 'use client'
-
-import Link from "next/link";
-import Button from "../button";
-import styles from "./CardSignUp.module.css";
-import { useRef } from "react";
+import Button from '../button';
+import styles from './CardSignUp.module.css';
+import { useRef } from 'react';
+import InputLogin from '../Input';
+import ParagraphLink from '../ParagraphLink';
 
 export default function CardSignUp() {
+  const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const passwordConfirmRef = useRef<HTMLInputElement>(null);
-  const nameRef = useRef<HTMLInputElement>(null);
 
-  const handleSignIn = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSignUp = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (emailRef.current && passwordRef.current && passwordConfirmRef.current && nameRef.current) {
+
+    if (
+      nameRef.current &&
+      emailRef.current &&
+      passwordRef.current &&
+      passwordConfirmRef.current
+    ) {
+      const name = nameRef.current.value;
       const email = emailRef.current.value;
       const password = passwordRef.current.value;
       const passwordConfirm = passwordConfirmRef.current.value;
-      const name = nameRef.current.value;
 
-      if(password === passwordConfirm){
-        console.log(email, password, passwordConfirm, name);
-
-        // Aqui você pode adicionar sua lógica para chamar a API de login
-        // Exemplo:
+      if (password === passwordConfirm) {
+        console.log(name, email, password);
         // try {
-        //   const response = await api.post('auth/login', { email, password });
+        //   const response = await api.post('auth/signup', { name, email, password });
         //   console.log(response.data); // Exemplo de como tratar a resposta da API
         // } catch (error) {
-        //   console.error('Erro ao realizar o login:', error);
+        //   console.error('Erro ao realizar o cadastro:', error);
         // }
-      }else{
-        alert("Senha digitada não são iguais")
+      } else {
+        alert('Passwords do not match.');
       }
     } else {
-      console.error('Um ou ambos os campos de email e senha não estão definidos corretamente.');
+      console.error('Um ou mais campos não estão definidos corretamente.');
     }
   };
 
@@ -47,78 +50,24 @@ export default function CardSignUp() {
         <p>SIGN UP</p>
         <p>Enter your credentials to create your account</p>
       </div>
-      <form onSubmit={handleSignIn}>
-      <div className={styles.Inputs}>
-          <div className="input-group mb-4 ml-2">
-            <div className="form-floating">
-              <input
-                type="text"
-                className="form-control"
-                id="floatingInputEmail"
-                placeholder="Insert email address"
-                ref={nameRef}
-                required
-              />
-              <label htmlFor="floatingInputEmail">Nome Completo</label>
-            </div>
-          </div>
-        </div>
+      <form onSubmit={handleSignUp}>
+        <InputLogin ref={nameRef} tipo="text" titulo="Complete Name" placeholderInput="Insert Complete Name" />
+        <InputLogin ref={emailRef} tipo="email" titulo="E-mail" placeholderInput="Insert email address" />
+        <InputLogin ref={passwordRef} tipo="password" titulo="Password" placeholderInput="Insert Password" />
+        <InputLogin ref={passwordConfirmRef} tipo="password" titulo="Confirm Password" placeholderInput="Insert Password" />
         <div className={styles.Inputs}>
-          <div className="input-group mb-4 ml-2">
-            <div className="form-floating">
-              <input
-                type="email"
-                className="form-control"
-                id="floatingInputEmail"
-                placeholder="Insert email address"
-                ref={emailRef}
-                required
-              />
-              <label htmlFor="floatingInputEmail">Email</label>
-            </div>
-          </div>
-          <div className="input-group mb-4 ml-2">
-            <div className="form-floating">
-              <input
-                type="password"
-                className="form-control"
-                id="floatingInputPassword"
-                placeholder="Insert Password"
-                ref={passwordRef}
-                required
-              />
-              <label htmlFor="floatingInputPassword">Password</label>
-            </div>
-          </div>
-          <div className="input-group mb-4 ml-2">
-            <div className="form-floating">
-              <input
-                type="password"
-                className="form-control"
-                id="floatingInputPassword"
-                placeholder="Insert Password"
-                ref={passwordConfirmRef}
-                required
-              />
-              <label htmlFor="floatingInputPassword">Confirm Password</label>
-            </div>
-          </div>
           <Button
             text="SIGN UP"
             color="orange"
             largura="415px"
             altura="45px"
             colorText="white"
+            tipo={undefined}// Adicionado para o botão disparar o onSubmit do form
           />
         </div>
       </form>
       <div className={styles.account}>
-        <p>
-          Already have an account? 
-          <Link href="/signin" className={styles.accoun_link}>
-            Access account
-          </Link>
-        </p>
+        <ParagraphLink rota='/signin' texto_principal='Already have an account?' texto_link='Access account'/>
       </div>
     </div>
   );
