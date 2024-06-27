@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const inter = Inter({ subsets: ["latin"] });
+const open = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "HPG",
@@ -15,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>{children}</body>
+      <body className={open.className}>{children}</body>
     </html>
   );
 }

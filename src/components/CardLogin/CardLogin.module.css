@@ -1,0 +1,57 @@
+.card{
+  margin: 8% auto;
+  width: 500px;
+  height: 575px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.name_crud{
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-left: 5px solid #F8D442;
+  padding: 0px 0px 0px 9px;
+}
+
+.Desc_card{
+  margin: 50px 0px 20px 0px;
+  text-align: center;
+}
+
+.Desc_card>p:nth-child(1){
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.Desc_card>p:nth-child(2){
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #6C6C6C;
+}
+
+.Inputs{
+  margin: 0px 415px 0px 415px;
+}
+
+.account{
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.account p{
+  text-decoration: none;
+  color: black;
+  margin: 5px;
+}
+
+.accoun_link{
+  text-decoration: none;
+  color: #FEAF00;
+}
