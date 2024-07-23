@@ -1,21 +1,18 @@
-"use client";
-import HomeComponent from "@/components/homeComponent/page";
-import styles from "./home.module.css";
 import Menu from "@/components/Menu/page";
-
-export default function Home() {
+import styles from '../pessoal.module.css'
+import CriarCardPessoal from "@/components/CriarCardPessoal/page";
+export default function GestaoPessoal(){
   const data = [
-    { href: "/security/gestao", label: "Pessoal" },
+    { href: "/home", label: "Home" },
     { href: "/security/gestao", label: "Financeira" },
     { href: "/security/produtos", label: "Produtos" },
   ];
-
-  return (
+  return(
     <div className={styles.container}>
-      <Menu data={data} />
+      <Menu data={data}/>
       <div className={styles.background}>
-        <HomeComponent />
+        <CriarCardPessoal />
       </div>
     </div>
-  );
+  )
 }
