@@ -8,10 +8,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function HomeComponent() {
   const { handleLogout } = useHandleLogout();
-  const token = localStorage.getItem("token");
-  const email = localStorage.getItem("email");
   const router = useRouter();
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    const email = localStorage.getItem("email");
     const fetchData = async () => {
       if (token && email) {
         try {
@@ -37,6 +37,8 @@ export default function HomeComponent() {
   }, []);
   async function handleGestaoPessoal(event: React.MouseEvent<HTMLDivElement>){
     event.preventDefault();
+    const token = localStorage.getItem("token");
+    const email = localStorage.getItem("email");
     try{
       const response = await api.post('/gestaoPessoal', {email: email, token:token} )
       if (response.status === 200) {

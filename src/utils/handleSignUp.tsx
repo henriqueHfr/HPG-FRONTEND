@@ -28,6 +28,8 @@ export function useHandleSignUp() {
           const response = await api.post('/cadastroUsuarios', { nome: name, email: email, senha: password });
           if (response.status === 201) {
             router.push("/signin");
+          }else{
+            alert(response.status + " erro ao criar o usuario")
           }
         } catch (error) {
           alert('Erro ao realizar o cadastro');
