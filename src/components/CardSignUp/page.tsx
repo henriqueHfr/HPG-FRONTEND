@@ -85,9 +85,9 @@ export default function CardSignUp() {
         </form>
         <div className={styles.account}>
           <p>
-            Already have an account?
+            Já possui uma conta?
             <Link href="/signin" className={styles.accoun_link}>
-              Access account
+              acesse agora
             </Link>
           </p>
         </div>

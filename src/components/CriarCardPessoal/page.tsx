@@ -56,6 +56,17 @@ export default function CriarCardPessoal() {
                 />
                 <label htmlFor="floatingInputPassword">Data de Termino</label>
               </div>
+              <div className="form-floating">
+                <input
+                  type="datetime-local"
+                  className="form-control"
+                  id="floatingInputPassword"
+                  placeholder="Insert Password"
+                  ref={datatimeRef}
+                  required
+                />
+                <label htmlFor="floatingInputPassword">Data de notificação: </label>
+              </div>
             </div>
             <Button
               typeButton= "submit"
