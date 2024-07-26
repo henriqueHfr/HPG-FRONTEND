@@ -26,8 +26,8 @@ export default function CardSignIn() {
           <p>HPG Operations</p>
         </div>
         <div className={styles.Desc_card}>
-          <p>SIGN IN</p>
-          <p>Enter your credentials to create your account</p>
+          <p>Entre</p>
+          <p>Entre com as credencias da sua conta</p>
         </div>
         <form onSubmit={(event) => handleSignIn(event, true)}>
           <div className={styles.Inputs}>
@@ -67,15 +67,15 @@ export default function CardSignIn() {
         </form>
         <div className={styles.account}>
           <p>
-            Forgot your password?
-            <Link href="/" className={styles.accoun_link}>
-              Reset Password
+            Esqueceu a sua senha?
+            <Link href="/email" className={styles.accoun_link}>
+              resete a sua senha
             </Link>
           </p>
           <p>
-            Don’t have an account?
+            Não possuio nenhuma conta?
             <Link href="/signup" className={styles.accoun_link}>
-              Create an account
+              Crie uma agora
             </Link>
           </p>
         </div>

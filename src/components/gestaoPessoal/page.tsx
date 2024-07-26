@@ -55,10 +55,9 @@ export default function PessoalComponent() {
 
   async function handleDelete(id: number) {
     try {
-      const response = await api.post('deletaCardPessoal', { id: id });
+      const response = await api.post('/deletaCardPessoal', { id: id });
       if (response.status === 200) {
-        alert("Card excluído com sucesso");
-        setData(data.filter(item => item.id !== id)); // Remover o card excluído da lista
+        setData(data.filter(item => item.id !== id));
       }
     } catch (err) {
       console.error("Erro ao excluir card", err);

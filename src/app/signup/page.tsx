@@ -5,7 +5,6 @@ import CardSignUp from "@/components/CardSignUp/page";
 const data = [
   { href: "/", label: "Sobre" },
   { href: "/", label: "Produtos" },
-  { href: "/signin", label: "Login" }
 ];
 
 
